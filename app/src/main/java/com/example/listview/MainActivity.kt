@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -42,5 +43,17 @@ class MainActivity : AppCompatActivity() {
             data.removeFirst()
             lvAdapter.notifyDataSetChanged()
         }
+
+        val _Search = findViewById<SearchView>(R.id.searchView)
+        _Search.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                lvAdapter.getFilter().filter(query)
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                lvAdapter.getFilter().filter(newText)
+                return true
+            }
+        })
     }
 }

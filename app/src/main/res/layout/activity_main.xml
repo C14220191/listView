@@ -28,4 +28,9 @@
         android:text="Hapus"
         android:id="@+id/button2"
         android:layout_weight="1"/>
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchView"
+        android:layout_weight="1"/>
 </LinearLayout>
